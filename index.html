@@ -116,7 +116,7 @@
                         bias = -0.019999999999999997
 
                         dataset_url = ("https://raw.githubusercontent.com/roger3555/datasets/refs/heads/main/perceptron_hw.csv")
-                        dataset = pd.read_csv(dataset_url)
+                        dataset = pd.read_csv(open_url(dataset_url))
                         dataset['Label'] = dataset['Label'].replace({'T':1, 'L':0})
                         data_np = data.to_numpy()
                         np.random.shuffle(dataset_np)
