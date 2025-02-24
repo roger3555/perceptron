@@ -111,7 +111,7 @@
 
     
                         weights = np.array([-0.00051299, 0.01115718, 0.0185164, 0.01095445, -0.01115718, 0.00051299, 
-                                    0.01095445, 0.0, -0.01115718, 0.00051299, 0.01095445, 0.0, -0.01115718, -0.01095445, -0.01095445 -0.00968665])
+                                    0.01095445, 0.0, -0.01115718, 0.00051299, 0.01095445, 0.0, -0.01115718, -0.01095445, -0.01095445, -0.00968665])
 
                         bias = -0.019999999999999997
 
@@ -131,7 +131,8 @@
     
                         def predict(X_test, weights, bias):
                             linear_product = np.dot(X_test, weights) + bias
-                            return ["T" if pred == 1 else "L" if pred == 0 else "Error" for pred in y_pred]
+                            y_pred = activation_function(linear_product)
+                            return ["T" if pred == 1 else "L" for pred in y_pred]
 
                         def get_np_switch_values():
                             s1 = int(pydom.select("#switch1").value)
@@ -159,11 +160,8 @@
                         def my_gen_function(event):
                             test_x = get_np_switch_values()
                             prediction = predict(test_x, weights, bias)
-
-                            text1 = str(prediction)
-                            predicted_class = "Predicted Shape: " + text1
-                            ## pydom['mp1'].content = predicted_class
-                            pydom['div#mp1'].html = predicted_class
+                            predicted_class = "Predicted Shape: " + str(prediction)
+                            pydom["#test-output"].html = predicted_class
      
                     </script>
             </section>
