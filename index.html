@@ -118,13 +118,13 @@
                         dataset_url = ("https://raw.githubusercontent.com/roger3555/datasets/refs/heads/main/perceptron_hw.csv")
                         dataset = pd.read_csv(open_url(dataset_url))
                         dataset['Label'] = dataset['Label'].replace({'T':1, 'L':0})
-                        dataset_np = dataset.to_numpy()
-                        np.random.shuffle(dataset_np)
+                        d_np = dataset.to_numpy()
+                        np.random.shuffle(d_np)
     
                         
                         
-                        X_test = dataset_np[30:50, :16]
-                        y_test = dataset_np[30:50, 16]
+                        X_test = d_np[30:50, :16]
+                        y_test = d_np[30:50, 16]
 
                         def activation_function(x):
                             return np.where(x >= 0, 1, 0)
