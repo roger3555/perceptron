@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>Perceptron HW</title>
+        <meta charset="utf-8" />
+         <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+         <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    </head>
+
+    <body>
+        <div>Type features here and then press the button: </div>
+        <label for="switch1">Switch 1</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch2">Switch 2</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch3">Switch 3</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch4">Switch 4</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch5">Switch 5</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch6">Switch 6</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch7">Switch 7</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch8">Switch 8</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch9">Switch 9</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch10">Switch 10</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch11">Switch 11</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch12">Switch 12</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch13">Switch 13</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch14">Switch 14</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch15">Switch 15</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label for="switch16">Switch 16</label>
+        <select name="switch1" id="switch1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+            
+         <button id="get-time" py-click="my_gen_function">Generate</button>
+    
+         <div id="test-output">
+             
+         </div>
+    
+            <section class="pyscript"> 
+                <div id="mpl"></div>
+    
+              
+    
+                    <script type="py" config="pyscript.toml">
+                    
+                        import numpy as np
+                        import pandas as pd
+                        from pyodide.http import open_url
+                        from pyscript import display
+                        from pyweb import pydom
+
+    
+                        weights = np.array([-0.00051299, 0.01115718, 0.0185164, 0.01095445, -0.01115718, 0.00051299, 
+                                    0.01095445, 0.0, -0.01115718, 0.00051299, 0.01095445, 0.0, -0.01115718, -0.01095445, -0.01095445 -0.00968665])
+
+                        bias = -0.019999999999999997
+
+                        dataset_url = ("https://raw.githubusercontent.com/roger3555/datasets/refs/heads/main/perceptron_hw.csv")
+                        dataset = pd.read_csv(dataset_url)
+                        dataset['Label'] = dataset['Label'].replace({'T':1, 'L':0})
+                        data_np = data.to_numpy()
+                        np.random.shuffle(dataset_np)
+    
+                        
+                        
+                        X_test = dataset_np[30:50, :16]
+                        y_test = dataset_np[30:50, 16]
+
+                        def activation_function(x):
+                            return np.where(x >= 0, 1, 0)
+    
+                        def predict(X_test, weights, bias):
+                            linear_product = np.dot(X_test, weights) + bias
+                            return ["T" if pred == 1 else "L" if pred == 0 else "Error" for pred in y_pred]
+
+                        def get_np_switch_values():
+                            s1 = int(pydon["switch1"][0].value)
+                            s2 = int(pydon["switch2"][0].value)
+                            s3 = int(pydon["switch3"][0].value)
+                            s4 = int(pydon["switch4"][0].value)
+                            s5 = int(pydon["switch5"][0].value)
+                            s6 = int(pydon["switch6"][0].value)
+                            s7 = int(pydon["switch7"][0].value)
+                            s8 = int(pydon["switch8"][0].value)
+                            s9 = int(pydon["switch9"][0].value)
+                            s10 = int(pydon["switch10"][0].value)
+                            s11 = int(pydon["switch11"][0].value)
+                            s12 = int(pydon["switch12"][0].value)
+                            s13 = int(pydon["switch13"][0].value)
+                            s14 = int(pydon["switch14"][0].value)
+                            s15 = int(pydon["switch15"][0].value)
+                            s16 = int(pydon["switch16"][0].value)
+                            switch_values = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16]
+                            np_switches = np.array(switch_values)
+                            np_switches = np.expand_dims(np_switches, axis=0)
+                            return np_switches
+    
+                        def my_gen_function(event):
+                            test_x = get_np_switch_values()
+                            prediction = predict(test_x, weights, bias)
+
+                            text1 = str(prediction)
+                            predicted_class = "Predicted Shape: " + text1
+                            ## pydon['mp1'].content = predicted_class
+                            pydom['div#mp1'].html = predicted_class
+     
+                    </script>
+            </section>
+        </body>
+</html>>
